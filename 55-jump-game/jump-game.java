@@ -7,7 +7,7 @@ class Solution {
             if(i > maxR){
                 return false;
             }else{
-                maxR = Math.max(maxR, i + nums[i]);
+                maxR = Math.max(maxR, i+ nums[i]);
             }
         }
         return true;
