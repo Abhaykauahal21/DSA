@@ -5,16 +5,13 @@ class Solution {
         String[] parts = path.split("/");
 
         for(String p : parts){
-
             if(p.equals("") || p.equals(".")){
                 continue;
-            }
-            else if(p.equals("..")){
+            }else if(p.equals("..")){
                 if(!stack.isEmpty()){
                     stack.pop();
                 }
-            }
-            else{
+            }else{
                 stack.push(p);
             }
         }
