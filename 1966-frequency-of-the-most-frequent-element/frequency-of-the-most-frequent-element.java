@@ -1,25 +1,22 @@
-    class Solution {
-        public int maxFrequency(int[] nums, int k) {
-            int left = 0;
-            int maxFreq = 0;
-            long windowSum = 0;
+class Solution {
+    public int maxFrequency(int[] nums, int k) {
+        int n = nums.length;
+        int left = 0;
+        long sum = 0;
+        int maxfreq = 0;
 
-            Arrays.sort(nums);
+        Arrays.sort(nums);
 
+        for(int right = 0; right < n; right++){
+            sum += nums[right];
 
-            for(int right = 0;right<nums.length;right++){
-                windowSum += nums[right];
-
-                while((long) nums[right] * (right -left +1)- windowSum >k){
-                    windowSum -= nums[left];
-                    left++;
-                }
-
-                maxFreq = Math.max(maxFreq, right-left+1);
-
+            while((long)nums[right] * (right-left +1) -sum > k){
+                sum -= nums[left];
+                left++;
             }
-
-            return maxFreq;
-            
+            maxfreq = Math.max(maxfreq, right-left+1);
         }
+        return maxfreq;
+        
     }
+}
