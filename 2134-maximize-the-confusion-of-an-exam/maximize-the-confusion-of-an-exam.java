@@ -4,12 +4,13 @@ class Solution {
         
     }
 
-    private int solve(String s, int k, char target){
-        int left = 0;
-        int maxlen = 0;
+    private int solve(String s, int k, int target){
+        int n = s.length();
         int count = 0;
+        int maxlen = 0;
+        int left = 0;
 
-        for(int right = 0; right < s.length(); right++){
+        for(int right = 0; right < n; right++){
             if(s.charAt(right) != target){
                 count++;
             }
@@ -20,6 +21,7 @@ class Solution {
                 }
                 left++;
             }
+
             maxlen = Math.max(maxlen, right-left+1);
         }
         return maxlen;
