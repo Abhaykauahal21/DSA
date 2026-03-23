@@ -1,9 +1,9 @@
 class Solution {
     public int findMaxLength(int[] nums) {
         HashMap<Integer, Integer> map = new HashMap<>();
-        map.put(0,-1);
-        int maxLen = 0;
         int sum = 0;
+        int maxlen = 0;
+        map.put(0,-1);
 
         for(int i=0;i<nums.length;i++){
             if(nums[i]==0){
@@ -11,13 +11,17 @@ class Solution {
             }else{
                 sum += 1;
             }
-
             if(map.containsKey(sum)){
-                maxLen = Math.max(maxLen, i-map.get(sum));
+                int len = i - map.get(sum);
+                maxlen = Math.max(len, maxlen);
             }else{
                 map.put(sum, i);
             }
+
+            
         }
-        return maxLen;
+        return maxlen;
+
+        
     }
 }
