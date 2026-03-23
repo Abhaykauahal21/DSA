@@ -12,7 +12,7 @@ class Solution {
                 sum += 1;
             }
             if(map.containsKey(sum)){
-                int len = i - map.get(sum);
+                int len = i - map.get(sum);        //length = current index - first index (if sum same ho to)
                 maxlen = Math.max(len, maxlen);
             }else{
                 map.put(sum, i);
