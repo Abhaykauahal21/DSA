@@ -5,7 +5,7 @@ class Solution {
 
         for(int[] box : boxTypes){
             int boxes = Math.min(box[0], truckSize);
-            totalunit += boxes*box[1];
+            totalunit += boxes * box[1];
             truckSize -= boxes;
             if(truckSize == 0){
                 break;
