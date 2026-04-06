@@ -5,13 +5,10 @@ class Solution {
         
         for(String s : strs){
             
-            int[] count = new int[26];
+            char[] arr = s.toCharArray();
+            Arrays.sort(arr);
             
-            for(char c : s.toCharArray()){
-                count[c - 'a']++;
-            }
-            
-            String key = Arrays.toString(count);
+            String key = new String(arr);
             
             map.putIfAbsent(key, new ArrayList<>());
             map.get(key).add(s);
