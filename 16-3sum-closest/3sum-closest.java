@@ -1,28 +1,39 @@
 class Solution {
     public int threeSumClosest(int[] nums, int target) {
-        Arrays.sort(nums);
         int n = nums.length;
-        int closeSet = nums[0] + nums[1] + nums[2];
+        int closediff = Integer.MAX_VALUE;
+        int closesum = 0;
+        Arrays.sort(nums);
 
         for(int i=0;i<n-2;i++){
+
             int left = i+1;
             int right = n-1;
 
             while(left < right){
-                int currSum = nums[i] + nums[left] + nums[right];
-                if(Math.abs(currSum - target) < Math.abs(closeSet - target)){
-                    closeSet = currSum;
+
+                int sum = nums[i] + nums[left] + nums[right];
+                
+                int diff = Math.abs(sum -target);
+                if(diff < closediff){
+                    closediff = diff;
+                    closesum = sum;
                 }
-                if(currSum < target){
+                if(sum == target){
+                    return target;
+                }
+                else if(sum < target){
                     left++;
-                }else if(currSum > target){
-                    right--;
                 }else{
-                    return closeSet;
+                    right--;
                 }
             }
         }
-        return closeSet;
+        return closesum;
+       
+    }   
+
         
-    }
+
+
 }
